@@ -11,6 +11,7 @@
     font-family: 'Noto Sans TC', 'Microsoft JhengHei', sans-serif;
     background: #f5f4f0; color: #1a1a1a; min-height: 100vh; padding: 2rem 1rem;
   }
+  .wrap { max-width: 1180px; margin: 0 auto; }
   h1 { text-align: center; font-size: 1.5rem; font-weight: 700; letter-spacing: 0.05em; margin-bottom: 0.4rem; }
   .subtitle { text-align: center; font-size: 0.875rem; color: #666; margin-bottom: 2rem; }
   .upload-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; max-width: 860px; margin: 0 auto 1.5rem; }
@@ -24,76 +25,112 @@
   .drop-zone input[type=file] { position: absolute; inset: 0; opacity: 0; cursor: pointer; }
   .drop-icon { font-size: 2rem; margin-bottom: 0.5rem; }
   .drop-label { font-size: 0.8rem; font-weight: 700; letter-spacing: 0.08em; color: #888; margin-bottom: 0.4rem; }
-  .drop-name { font-size: 0.875rem; color: #1a1a1a; font-weight: 600; }
+  .drop-name { font-size: 0.875rem; color: #1a1a1a; font-weight: 600; word-break: break-all; }
   .drop-hint { font-size: 0.75rem; color: #aaa; margin-top: 0.25rem; }
+  .btn-row { display: flex; justify-content: center; gap: 0.75rem; margin-bottom: 2rem; flex-wrap: wrap; }
   .btn-compare {
-    background: #1a1a1a; color: #fff;
-    border: none; border-radius: 8px; padding: 0.75rem 2.5rem;
+    background: #1a1a1a; color: #fff; border: none; border-radius: 8px; padding: 0.75rem 2.5rem;
     font-size: 1rem; font-weight: 600; cursor: pointer; letter-spacing: 0.05em;
     transition: background 0.15s; font-family: inherit;
   }
   .btn-compare:hover { background: #333; }
   .btn-compare:disabled { background: #ccc; cursor: not-allowed; }
-  .summary-row {
-    display: grid; grid-template-columns: repeat(5, 1fr);
-    gap: 0.75rem; max-width: 860px; margin: 0 auto 1.5rem;
-  }
-  .stat-card { background: #fff; border-radius: 10px; padding: 1rem; text-align: center; border: 1px solid #e8e8e8; }
-  .stat-num { font-size: 1.75rem; font-weight: 700; }
-  .stat-lbl { font-size: 0.7rem; color: #888; margin-top: 0.2rem; letter-spacing: 0.04em; }
-  .stat-card.red    .stat-num { color: #d03030; }
-  .stat-card.purple .stat-num { color: #7c3abf; }
-  .stat-card.orange .stat-num { color: #c07020; }
-  .stat-card.blue   .stat-num { color: #3a7bd5; }
-  .stat-card.green  .stat-num { color: #2d9a5c; }
-  .filter-row { max-width: 860px; margin: 0 auto 0.75rem; display: flex; gap: 0.5rem; align-items: center; flex-wrap: wrap; }
-  .filter-btn {
-    padding: 0.35rem 0.85rem; border-radius: 20px; border: 1px solid #ddd;
-    background: #fff; font-size: 0.8rem; cursor: pointer; transition: all 0.15s; font-family: inherit;
-  }
-  .filter-btn.active { background: #1a1a1a; color: #fff; border-color: #1a1a1a; }
-  .table-wrap { max-width: 860px; margin: 0 auto; background: #fff; border-radius: 12px; border: 1px solid #e8e8e8; overflow: hidden; }
-  table { width: 100%; border-collapse: collapse; font-size: 0.82rem; }
-  thead th {
-    background: #f5f4f0; padding: 0.7rem 0.75rem; text-align: left;
-    font-weight: 700; font-size: 0.75rem; letter-spacing: 0.06em; color: #555;
-    border-bottom: 1px solid #e0e0e0; white-space: nowrap;
-  }
-  tbody tr { border-bottom: 1px solid #f0f0f0; transition: background 0.1s; }
-  tbody tr:last-child { border-bottom: none; }
-  tbody tr:hover { background: #fafafa; }
-  td { padding: 0.55rem 0.75rem; vertical-align: middle; }
-  .tag { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.04em; white-space: nowrap; }
-  .tag-diff          { background: #ffeaea; color: #b02020; }
-  .tag-ambiguous     { background: #f3e8ff; color: #6b21a8; }
-  .tag-vendor-only   { background: #fff5e0; color: #905010; }
-  .tag-internal-only { background: #e8f3ff; color: #1a5ca0; }
-  .tag-ok            { background: #e8faf0; color: #1a7040; }
-  .price-diff  { color: #d03030; font-weight: 700; }
-  .price-ok    { color: #2d9a5c; }
-  .price-na    { color: #bbb; }
-  .diff-amt    { font-size: 0.75rem; color: #d03030; }
-  .price-multi { font-size: 0.78rem; line-height: 1.7; }
-  .no-data { text-align: center; padding: 3rem; color: #aaa; font-size: 0.875rem; }
-  .btn-row { display: flex; justify-content: center; gap: 0.75rem; margin-bottom: 2rem; }
   .btn-export {
-    background: #fff; color: #1a1a1a;
-    border: 1.5px solid #1a1a1a; border-radius: 8px; padding: 0.75rem 2rem;
+    background: #fff; color: #1a1a1a; border: 1.5px solid #1a1a1a; border-radius: 8px; padding: 0.75rem 2rem;
     font-size: 1rem; font-weight: 600; cursor: pointer; letter-spacing: 0.05em;
     transition: background 0.15s; font-family: inherit;
   }
   .btn-export:hover { background: #f5f4f0; }
   .btn-export:disabled { border-color: #ccc; color: #ccc; cursor: not-allowed; }
+
+  /* ── 總額核對 ── */
+  .recon { background: #fff; border-radius: 12px; border: 1px solid #e8e8e8; padding: 1.25rem 1.5rem; margin-bottom: 1rem; }
+  .recon-head { font-size: 0.8rem; font-weight: 700; letter-spacing: 0.08em; color: #888; margin-bottom: 0.9rem; }
+  .recon-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; text-align: center; }
+  .recon-num { font-size: 1.5rem; font-weight: 700; font-variant-numeric: tabular-nums; }
+  .recon-lbl { font-size: 0.72rem; color: #888; margin-top: 0.2rem; }
+  .recon-num.gap-zero { color: #2d9a5c; }
+  .recon-num.gap-nonzero { color: #d03030; }
+  .recon-note { margin-top: 0.9rem; padding-top: 0.9rem; border-top: 1px dashed #e8e8e8; font-size: 0.8rem; color: #555; line-height: 1.75; }
+  .recon-note b { font-variant-numeric: tabular-nums; }
+
+  .banner { border-radius: 10px; padding: 0.85rem 1.1rem; margin-bottom: 1rem; font-size: 0.84rem; line-height: 1.7; }
+  .banner-info  { background: #f3e8ff; color: #5b1d94; border: 1px solid #e2ccff; }
+  .banner-warn  { background: #fff4e0; color: #8a4b00; border: 1px solid #ffe0b0; }
+  .banner-error { background: #ffeaea; color: #961c1c; border: 1px solid #ffcccc; }
+  .banner b { font-variant-numeric: tabular-nums; }
+
+  .summary-row { display: grid; grid-template-columns: repeat(6, 1fr); gap: 0.75rem; margin-bottom: 1.5rem; }
+  .stat-card { background: #fff; border-radius: 10px; padding: 1rem 0.5rem; text-align: center; border: 1px solid #e8e8e8; cursor: pointer; transition: border-color .15s, transform .1s; }
+  .stat-card:hover { border-color: #bbb; transform: translateY(-1px); }
+  .stat-num { font-size: 1.6rem; font-weight: 700; font-variant-numeric: tabular-nums; }
+  .stat-lbl { font-size: 0.68rem; color: #888; margin-top: 0.2rem; letter-spacing: 0.02em; }
+  .stat-card.red    .stat-num { color: #d03030; }
+  .stat-card.orange .stat-num { color: #c07020; }
+  .stat-card.blue   .stat-num { color: #3a7bd5; }
+  .stat-card.purple .stat-num { color: #7c3abf; }
+  .stat-card.teal   .stat-num { color: #0f7f86; }
+  .stat-card.green  .stat-num { color: #2d9a5c; }
+
+  .filter-row { margin-bottom: 0.75rem; display: flex; gap: 0.5rem; align-items: center; flex-wrap: wrap; }
+  .filter-btn {
+    padding: 0.35rem 0.85rem; border-radius: 20px; border: 1px solid #ddd;
+    background: #fff; font-size: 0.8rem; cursor: pointer; transition: all 0.15s; font-family: inherit;
+  }
+  .filter-btn:hover { border-color: #999; }
+  .filter-btn.active { background: #1a1a1a; color: #fff; border-color: #1a1a1a; }
+
+  .table-wrap { background: #fff; border-radius: 12px; border: 1px solid #e8e8e8; overflow-x: auto; }
+  table { width: 100%; border-collapse: collapse; font-size: 0.82rem; }
+  thead th {
+    background: #f5f4f0; padding: 0.7rem 0.7rem; text-align: left;
+    font-weight: 700; font-size: 0.72rem; letter-spacing: 0.04em; color: #555;
+    border-bottom: 1px solid #e0e0e0; white-space: nowrap;
+  }
+  tbody tr.main { border-bottom: 1px solid #f0f0f0; transition: background 0.1s; cursor: pointer; }
+  tbody tr.main:hover { background: #fafafa; }
+  td { padding: 0.55rem 0.7rem; vertical-align: middle; }
+  .num { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .tag { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.02em; white-space: nowrap; }
+  .tag-amount-diff     { background: #ffeaea; color: #b02020; }
+  .tag-vendor-only     { background: #fff5e0; color: #905010; }
+  .tag-internal-only   { background: #e8f3ff; color: #1a5ca0; }
+  .tag-discount        { background: #f3e8ff; color: #6b21a8; }
+  .tag-discount-offset { background: #f3e8ff; color: #6b21a8; }
+  .tag-split           { background: #e0f5f6; color: #0b6169; }
+  .tag-ok              { background: #e8faf0; color: #1a7040; }
+
+  .v-strong { color: #c07020; font-weight: 700; }
+  .i-strong { color: #3a7bd5; font-weight: 700; }
+  .d-strong { color: #d03030; font-weight: 700; }
+  .muted    { color: #ccc; }
+  .qty      { font-size: 0.75rem; color: #999; }
+  .pname    { max-width: 260px; }
+  .hint     { display: block; font-size: 0.7rem; color: #9a6b1f; margin-top: 0.15rem; }
+  .caret    { display: inline-block; width: 0.9rem; color: #bbb; font-size: 0.7rem; }
+
+  tr.detail td { background: #fbfbfa; padding: 0 0.7rem 0.6rem; }
+  .dtl { width: 100%; border-collapse: collapse; font-size: 0.74rem; margin-top: 0.1rem; }
+  .dtl th { background: transparent; padding: 0.3rem 0.5rem; font-size: 0.68rem; color: #999; border-bottom: 1px solid #eee; text-align: left; letter-spacing: 0; }
+  .dtl td { padding: 0.28rem 0.5rem; border-bottom: 1px solid #f4f4f4; }
+  .dtl .side-v { color: #905010; font-weight: 700; }
+  .dtl .side-i { color: #1a5ca0; font-weight: 700; }
+  .no-data { text-align: center; padding: 3rem; color: #aaa; font-size: 0.875rem; }
+  .foot { text-align: center; font-size: 0.72rem; color: #aaa; margin-top: 1.5rem; line-height: 1.8; }
+
+  @media (max-width: 900px) { .summary-row { grid-template-columns: repeat(3, 1fr); } }
   @media (max-width: 650px) {
     .upload-row { grid-template-columns: 1fr; }
     .summary-row { grid-template-columns: 1fr 1fr; }
+    .recon-grid { grid-template-columns: 1fr; }
   }
 </style>
 </head>
 <body>
+<div class="wrap">
 
 <h1>📋 對帳比對工具</h1>
-<p class="subtitle">上傳廠商對帳單與公司內部收料單，自動找出價格差異</p>
+<p class="subtitle">上傳廠商對帳單與公司內部收料單，自動核對數量、金額與折讓</p>
 
 <div class="upload-row">
   <div class="drop-zone" id="zone-vendor" ondragover="onDrag(event,'vendor')" ondragleave="offDrag('vendor')" ondrop="onDrop(event,'vendor')">
@@ -101,14 +138,14 @@
     <div class="drop-icon" id="icon-vendor">📄</div>
     <div class="drop-label">廠商對帳單</div>
     <div class="drop-name" id="name-vendor">點擊或拖拉檔案至此</div>
-    <div class="drop-hint">例：4月對帳單-鼎維.xlsx</div>
+    <div class="drop-hint">例：7月對帳單-盛鎰.xlsx</div>
   </div>
   <div class="drop-zone" id="zone-internal" ondragover="onDrag(event,'internal')" ondragleave="offDrag('internal')" ondrop="onDrop(event,'internal')">
     <input type="file" accept=".xlsx,.xls" onchange="onFile(event,'internal')">
     <div class="drop-icon" id="icon-internal">📄</div>
     <div class="drop-label">公司內部收料單</div>
     <div class="drop-name" id="name-internal">點擊或拖拉檔案至此</div>
-    <div class="drop-hint">例：202604.xlsx</div>
+    <div class="drop-hint">例：202607.xlsx</div>
   </div>
 </div>
 
@@ -118,48 +155,82 @@
 </div>
 
 <div id="result-area" style="display:none">
+
+  <div id="parse-banner"></div>
+
+  <div class="recon">
+    <div class="recon-head">總 額 核 對</div>
+    <div class="recon-grid">
+      <div><div class="recon-num" id="r-vendor">0</div><div class="recon-lbl">廠商對帳單合計</div></div>
+      <div><div class="recon-num" id="r-internal">0</div><div class="recon-lbl">公司收料單合計</div></div>
+      <div><div class="recon-num" id="r-gap">0</div><div class="recon-lbl">差額（公司 − 廠商）</div></div>
+    </div>
+    <div class="recon-note" id="r-note"></div>
+  </div>
+
+  <div id="discount-banner"></div>
+
   <div class="summary-row">
-    <div class="stat-card red">   <div class="stat-num" id="s-diff">0</div>          <div class="stat-lbl">單價不符</div></div>
-    <div class="stat-card purple"><div class="stat-num" id="s-ambiguous">0</div>     <div class="stat-lbl">廠商價格不一致</div></div>
-    <div class="stat-card orange"><div class="stat-num" id="s-vendor-only">0</div>   <div class="stat-lbl">廠商有、公司無</div></div>
-    <div class="stat-card blue">  <div class="stat-num" id="s-internal-only">0</div> <div class="stat-lbl">公司有、廠商無</div></div>
-    <div class="stat-card green"> <div class="stat-num" id="s-ok">0</div>            <div class="stat-lbl">金額一致</div></div>
+    <div class="stat-card red"    onclick="setFilter('amount-diff')">    <div class="stat-num" id="s-amount-diff">0</div>     <div class="stat-lbl">金額不符</div></div>
+    <div class="stat-card orange" onclick="setFilter('vendor-only')">   <div class="stat-num" id="s-vendor-only">0</div>     <div class="stat-lbl">廠商有、公司無</div></div>
+    <div class="stat-card blue"   onclick="setFilter('internal-only')"> <div class="stat-num" id="s-internal-only">0</div>   <div class="stat-lbl">公司有、廠商無</div></div>
+    <div class="stat-card purple" onclick="setFilter('discount')">      <div class="stat-num" id="s-discount">0</div>        <div class="stat-lbl">折讓／無品號</div></div>
+    <div class="stat-card teal"   onclick="setFilter('split')">         <div class="stat-num" id="s-split">0</div>           <div class="stat-lbl">記帳方式不同</div></div>
+    <div class="stat-card green"  onclick="setFilter('ok')">            <div class="stat-num" id="s-ok">0</div>              <div class="stat-lbl">完全一致</div></div>
   </div>
 
   <div class="filter-row">
     <span style="font-size:0.8rem;color:#888;margin-right:0.25rem">篩選：</span>
-    <button class="filter-btn" id="fb-all"           onclick="setFilter('all',this)">全部顯示</button>
-    <button class="filter-btn" id="fb-diff"          onclick="setFilter('diff',this)">⚠ 單價不符</button>
-    <button class="filter-btn" id="fb-ambiguous"     onclick="setFilter('ambiguous',this)">? 廠商價格不一致</button>
-    <button class="filter-btn" id="fb-vendor-only"   onclick="setFilter('vendor-only',this)">廠商有、公司無</button>
-    <button class="filter-btn" id="fb-internal-only" onclick="setFilter('internal-only',this)">公司有、廠商無</button>
-    <button class="filter-btn" id="fb-ok"            onclick="setFilter('ok',this)">✓ 一致</button>
+    <button class="filter-btn" id="fb-todo"          onclick="setFilter('todo')">⚠ 需確認</button>
+    <button class="filter-btn" id="fb-all"           onclick="setFilter('all')">全部顯示</button>
+    <button class="filter-btn" id="fb-amount-diff"   onclick="setFilter('amount-diff')">金額不符</button>
+    <button class="filter-btn" id="fb-vendor-only"   onclick="setFilter('vendor-only')">廠商有、公司無</button>
+    <button class="filter-btn" id="fb-internal-only" onclick="setFilter('internal-only')">公司有、廠商無</button>
+    <button class="filter-btn" id="fb-discount"      onclick="setFilter('discount')">折讓／無品號</button>
+    <button class="filter-btn" id="fb-discount-offset" onclick="setFilter('discount-offset')">折讓已抵銷</button>
+    <button class="filter-btn" id="fb-split"         onclick="setFilter('split')">記帳方式不同</button>
+    <button class="filter-btn" id="fb-ok"            onclick="setFilter('ok')">✓ 一致</button>
   </div>
 
   <div class="table-wrap">
     <table>
       <thead>
         <tr>
-          <th>狀態</th>
+          <th style="width:6.5rem">狀態</th>
           <th>品號</th>
           <th>品名</th>
-          <th style="text-align:right">廠商單價</th>
-          <th style="text-align:right">公司單價</th>
-          <th style="text-align:right">差額</th>
+          <th class="num">廠商數量</th>
+          <th class="num">廠商金額</th>
+          <th class="num">公司數量</th>
+          <th class="num">公司金額</th>
+          <th class="num">差額</th>
         </tr>
       </thead>
       <tbody id="tbody"></tbody>
     </table>
     <div class="no-data" id="no-data" style="display:none">此篩選條件無資料</div>
   </div>
+
+  <p class="foot">點任一列可展開原始明細（Excel 列號 · 單號 · 日期 · 數量 · 單價 · 金額）</p>
 </div>
 
+</div>
 <script>
-let files = { vendor: null, internal: null };
-let allRows = [];
+/* ══════════════════════════════════════════════════════════
+   對帳比對工具
+   比對基準：以「品號」彙總兩邊的【總數量】與【總金額】
+   金額為主要判準（數量在拆列記帳時不可靠，金額才守恆）
+   ══════════════════════════════════════════════════════════ */
 
+const TOL = 0.5;                 // 金額容差（元）
+let files   = { vendor: null, internal: null };
+let allRows = [];
+let recon   = null;
+let curFilter = 'todo';
+
+/* ── 檔案上傳 ── */
 function onDrag(e, s) { e.preventDefault(); document.getElementById('zone-'+s).classList.add('drag-over'); }
-function offDrag(s) { document.getElementById('zone-'+s).classList.remove('drag-over'); }
+function offDrag(s)   { document.getElementById('zone-'+s).classList.remove('drag-over'); }
 function onDrop(e, s) { e.preventDefault(); offDrag(s); const f = e.dataTransfer.files[0]; if (f) loadFile(f, s); }
 function onFile(e, s) { const f = e.target.files[0]; if (f) loadFile(f, s); }
 
@@ -171,194 +242,422 @@ function loadFile(f, side) {
   if (files.vendor && files.internal) document.getElementById('btn-compare').disabled = false;
 }
 
+/* ── 讀取所有工作表（不再寫死第一個） ── */
 function readXlsx(file) {
   return new Promise((res, rej) => {
     const reader = new FileReader();
     reader.onload = e => {
-      const wb = XLSX.read(e.target.result, { type: 'array' });
-      const ws = wb.Sheets[wb.SheetNames[0]];
-      res(XLSX.utils.sheet_to_json(ws, { header: 1, defval: '' }));
+      try {
+        const wb = XLSX.read(e.target.result, { type: 'array' });
+        res(wb.SheetNames.map(n => ({
+          name: n,
+          rows: XLSX.utils.sheet_to_json(wb.Sheets[n], { header: 1, defval: null, blankrows: true })
+        })));
+      } catch (err) { rej(err); }
     };
     reader.onerror = rej;
     reader.readAsArrayBuffer(file);
   });
 }
 
-// 在標題列裡找出含有指定關鍵字的欄位索引（忽略空白）
-function findCol(headerRow, keywords) {
-  for (let j = 0; j < headerRow.length; j++) {
-    const cell = String(headerRow[j] == null ? '' : headerRow[j]).replace(/\s/g, '');
-    if (keywords.some(k => cell.includes(k))) return j;
+/* ── 數字解析：處理千分位、$、全形、括號負數 ── */
+function num(v) {
+  if (typeof v === 'number') return isFinite(v) ? v : NaN;
+  if (v === null || v === undefined) return NaN;
+  let s = String(v);
+  // 全形 → 半形
+  s = s.replace(/[０-９．，－（）＄]/g,
+        c => '0123456789.,-()$'['０１２３４５６７８９．，－（）＄'.indexOf(c)]);
+  s = s.replace(/[$,\s ]/g, '').trim();
+  if (!s) return NaN;
+  let neg = false;
+  if (/^\(.*\)$/.test(s)) { neg = true; s = s.slice(1, -1); }
+  if (s[0] === '-') { neg = true; s = s.slice(1); }
+  else if (s[0] === '+') { s = s.slice(1); }
+  if (!/^\d*\.?\d+$/.test(s)) return NaN;
+  const n = parseFloat(s);
+  if (!isFinite(n)) return NaN;
+  return neg ? -n : n;
+}
+
+/* ── 文字正規化 ── */
+function txt(v) { return v === null || v === undefined ? '' : String(v).replace(/\s+/g, ''); }
+function normPart(s) {
+  return String(s == null ? '' : s)
+    .replace(/[Ａ-Ｚａ-ｚ０-９]/g, c => String.fromCharCode(c.charCodeAt(0) - 0xFEE0))
+    .replace(/\s+/g, '').toUpperCase();
+}
+/* 去掉 "-11" 這類尾碼，用來提示「疑似同品號的加工／修改」 */
+function basePart(s) { return s.replace(/[-‐-―]\d{1,3}$/, ''); }
+
+/* ── 欄位偵測：先找優先關鍵字，再找備援，並排除誤命中 ── */
+function findCol(header, prefer, fallback, exclude) {
+  const cells = header.map(txt);
+  for (const list of [prefer, fallback || []]) {
+    for (let j = 0; j < cells.length; j++) {
+      const c = cells[j];
+      if (!c) continue;
+      if (exclude && exclude.some(x => c.includes(x))) continue;
+      if (list.some(k => c.includes(k))) return j;
+    }
   }
   return -1;
 }
 
-// 自動偵測欄位的通用解析器：找出同時含「品號」與「單價」的標題列，
-// 再依標題定位品號／品名／單價欄。這樣即使各月報表欄位順序不同也能正確讀取。
-function parseSheet(rows, nameKeywords) {
-  let hi = -1, cPart = -1, cPrice = -1, cName = -1;
-  for (let i = 0; i < rows.length; i++) {
-    const p  = findCol(rows[i], ['品號']);
-    const pr = findCol(rows[i], ['單價']);
-    if (p >= 0 && pr >= 0) {
-      hi = i; cPart = p; cPrice = pr;
-      cName = findCol(rows[i], nameKeywords);
-      break;
-    }
-  }
-  if (hi < 0) return {};
+const COLS = {
+  part : { prefer: ['品號', '料號'], fallback: ['品項編號', '物料編號'], exclude: ['單號', '序號', '訂單'] },
+  name : { prefer: ['貨品名稱', '品名'], fallback: ['名稱', '摘要', '說明'], exclude: [] },
+  price: { prefer: ['單價'], fallback: ['進價', '售價'], exclude: ['含稅', '原價', '牌價'] },
+  qty  : { prefer: ['數量'], fallback: ['件數'], exclude: [] },
+  amt  : { prefer: ['小計', '金額'], fallback: ['複價', '總價'], exclude: ['合計', '總計', '稅'] },
+  doc  : { prefer: ['憑證單號', '託工單號', '單號'], fallback: ['訂單'], exclude: ['單別'] },
+  date : { prefer: ['日期'], fallback: ['交期'], exclude: [] },
+};
+function col(header, k) { const c = COLS[k]; return findCol(header, c.prefer, c.fallback, c.exclude); }
 
-  const map = {};
+/* ── 解析一個工作表 ── */
+function parseOneSheet(rows, sheetName) {
+  let hi = -1, cPart = -1, cPrice = -1;
+  for (let i = 0; i < rows.length; i++) {
+    const p = col(rows[i], 'part'), pr = col(rows[i], 'price');
+    if (p >= 0 && pr >= 0 && p !== pr) { hi = i; cPart = p; cPrice = pr; break; }
+  }
+  if (hi < 0) return null;
+
+  const H     = rows[hi];
+  const cName = col(H, 'name'), cQty = col(H, 'qty');
+  const cAmt  = col(H, 'amt'),  cDoc = col(H, 'doc'), cDate = col(H, 'date');
+
+  const items = [], discounts = [];
+  let declaredTotal = null;
+
   for (let i = hi + 1; i < rows.length; i++) {
-    const r = rows[i];
-    const partNo = String(r[cPart] || '').trim();
-    if (!partNo || partNo.includes('空白') || partNo.includes('合計')) continue;
-    const priceRaw = String(r[cPrice] == null ? '' : r[cPrice]).trim();
-    if (priceRaw === '不計價' || priceRaw === '') continue;
-    const price = parseFloat(priceRaw);
-    if (isNaN(price)) continue;
-    if (!map[partNo]) map[partNo] = { name: cName >= 0 ? String(r[cName] || '').trim() : '', prices: [] };
-    map[partNo].prices.push(price);
+    const r = rows[i] || [];
+    const g = j => (j >= 0 && j < r.length ? r[j] : null);
+    const excelRow = i + 1;
+
+    // 表尾「合計」列 → 拿來做解析防呆，不當資料
+    const labels = r.map(txt);
+    const li = labels.findIndex(c => /^(合計|總計)[:：]?$/.test(c));
+    if (li >= 0) {
+      for (let j = li + 1; j < r.length; j++) {
+        const n = num(r[j]);
+        if (!isNaN(n)) { declaredTotal = n; break; }
+      }
+      continue;
+    }
+    if (labels.some(c => /^~?以下空白~?$/.test(c))) continue;
+
+    const partRaw = g(cPart);
+    const nameRaw = g(cName);
+    const partNo  = partRaw == null ? '' : String(partRaw).trim();
+    const name    = nameRaw == null ? '' : String(nameRaw).trim();
+
+    const priceRaw = g(cPrice);
+    if (txt(priceRaw) === '不計價') continue;
+    const price = num(priceRaw);
+    if (isNaN(price)) continue;                 // 沒有可用單價 → 不是資料列
+
+    let qty = cQty >= 0 ? num(g(cQty)) : NaN;
+    if (isNaN(qty)) qty = 1;
+
+    let amt = cAmt >= 0 ? num(g(cAmt)) : NaN;
+    if (isNaN(amt)) amt = qty * price;          // 公司檔的金額欄沒有標題，就自己算
+
+    if (!partNo && !name) continue;
+
+    const line = {
+      row: excelRow, sheet: sheetName,
+      doc:  cDoc  >= 0 ? String(g(cDoc)  == null ? '' : g(cDoc)).trim()  : '',
+      date: cDate >= 0 ? String(g(cDate) == null ? '' : g(cDate)).trim() : '',
+      partNo, name, qty, price, amt,
+    };
+
+    // ★ 沒有品號的列不再丟掉：折讓另立一區，其餘用品名當 key
+    const isDiscount = !partNo && (amt < 0 || /折讓|折減|折扣|折價|折/.test(name));
+    if (isDiscount) discounts.push(line); else items.push(line);
+  }
+
+  return { sheetName, headerRow: hi + 1, items, discounts, declaredTotal,
+           hasQty: cQty >= 0, hasAmt: cAmt >= 0 };
+}
+
+/* 掃描所有工作表，取資料列最多的那一個 */
+function parseBook(sheets) {
+  let best = null;
+  for (const s of sheets) {
+    const p = parseOneSheet(s.rows, s.name);
+    if (!p) continue;
+    const n = p.items.length + p.discounts.length;
+    if (!best || n > best.items.length + best.discounts.length) best = p;
+  }
+  return best;
+}
+
+/* ── 彙總：品號 → 總數量 / 總金額 / 原始明細 ── */
+function aggregate(parsed) {
+  const map = new Map();
+  for (const l of parsed.items) {
+    const key = l.partNo ? 'P:' + normPart(l.partNo) : 'N:' + normPart(l.name);
+    if (!map.has(key)) map.set(key, { key, partNo: l.partNo, name: l.name, qty: 0, amt: 0, lines: [] });
+    const e = map.get(key);
+    e.qty += l.qty; e.amt += l.amt; e.lines.push(l);
+    if (!e.name && l.name) e.name = l.name;
   }
   return map;
 }
 
-// 廠商對帳單：品名欄可能叫「貨品名稱」或「品名」
-function parseVendor(rows)   { return parseSheet(rows, ['貨品名稱', '品名']); }
-// 公司內部收料單：品名欄可能叫「品名」或「貨品名稱」
-function parseInternal(rows) { return parseSheet(rows, ['品名', '貨品名稱']); }
+const sum = a => a.reduce((x, y) => x + y, 0);
+const money = n => (Math.round(n * 100) / 100).toLocaleString('zh-TW');
 
-// 去重：差距 < 1 元視為同一個價格
-function uniquePrices(arr) {
-  const out = [];
-  for (const p of arr) {
-    if (!out.some(x => Math.abs(x - p) < 1)) out.push(p);
-  }
-  return out.sort((a, b) => a - b);
-}
-
+/* ══════════════ 主流程 ══════════════ */
 async function compare() {
   const btn = document.getElementById('btn-compare');
   btn.disabled = true; btn.textContent = '比對中...';
   try {
-    const [vData, iData] = await Promise.all([readXlsx(files.vendor), readXlsx(files.internal)]);
-    const vMap = parseVendor(vData);
-    const iMap = parseInternal(iData);
-    const allParts = new Set([...Object.keys(vMap), ...Object.keys(iMap)]);
+    const [vSheets, iSheets] = await Promise.all([readXlsx(files.vendor), readXlsx(files.internal)]);
+    const vP = parseBook(vSheets), iP = parseBook(iSheets);
+    if (!vP) throw new Error('廠商對帳單找不到同時含「品號」與「單價」的標題列。');
+    if (!iP) throw new Error('公司收料單找不到同時含「品號」與「單價」的標題列。');
 
-    allRows = [];
-    for (const partNo of allParts) {
-      const v  = vMap[partNo];
-      const iv = iMap[partNo];
-      const name = (v || iv).name;
+    const vMap = aggregate(vP), iMap = aggregate(iP);
+    const vDiscount = sum(vP.discounts.map(l => l.amt));
+    const iDiscount = sum(iP.discounts.map(l => l.amt));
+    const vTotal = sum(vP.items.map(l => l.amt)) + vDiscount;
+    const iTotal = sum(iP.items.map(l => l.amt)) + iDiscount;
 
-      if (!v) {
-        allRows.push({ partNo, name, status: 'internal-only', vPrices: [], iPrices: uniquePrices(iv.prices) });
-        continue;
-      }
-      if (!iv) {
-        allRows.push({ partNo, name, status: 'vendor-only', vPrices: uniquePrices(v.prices), iPrices: [] });
-        continue;
-      }
-
-      const vPrices = uniquePrices(v.prices);
-      const iPrices = uniquePrices(iv.prices);
-
-      // 廠商自己就有多種不同單價 → 需人工確認
-      if (vPrices.length > 1) {
-        allRows.push({ partNo, name, status: 'ambiguous', vPrices, iPrices });
-        continue;
-      }
-
-      // 廠商只有一個單價，看公司裡有沒有一樣的
-      const vP = vPrices[0];
-      const match = iPrices.some(p => Math.abs(p - vP) < 1);
-      allRows.push({ partNo, name, status: match ? 'ok' : 'diff', vPrices, iPrices });
+    /* 1. 逐品號建立比對列 */
+    const rows = [];
+    for (const key of new Set([...vMap.keys(), ...iMap.keys()])) {
+      const v = vMap.get(key), i = iMap.get(key);
+      const base = { key, partNo: (v || i).partNo, name: (v || i).name || (i || v).name,
+                     v: v || null, i: i || null,
+                     vLines: v ? v.lines : [], iLines: i ? i.lines : [] };
+      if (!i)      { rows.push({ ...base, status: 'vendor-only',   gap: -v.amt }); continue; }
+      if (!v)      { rows.push({ ...base, status: 'internal-only', gap:  i.amt }); continue; }
+      const gap = i.amt - v.amt;
+      if (Math.abs(gap) > TOL)                    rows.push({ ...base, status: 'amount-diff', gap });
+      else if (Math.abs(i.qty - v.qty) > 1e-9 ||
+               v.lines.length !== i.lines.length) rows.push({ ...base, status: 'split', gap: 0 });
+      else                                        rows.push({ ...base, status: 'ok', gap: 0 });
     }
 
-    const order = { diff: 0, ambiguous: 1, 'vendor-only': 2, 'internal-only': 3, ok: 4 };
-    allRows.sort((a, b) => order[a.status] - order[b.status]);
+    /* 2. 折讓抵銷：公司比廠商少的總額 == 廠商折讓總額 → 這批金額差是折扣造成的 */
+    const totalDiscount = Math.abs(vDiscount) + Math.abs(iDiscount);
+    const shortfall = rows.filter(r => r.status === 'amount-diff' && r.gap < 0);
+    const shortfallSum = Math.abs(sum(shortfall.map(r => r.gap)));
+    let discountNote = '', discountResolved = false;
+    if (totalDiscount > TOL && shortfall.length && Math.abs(shortfallSum - totalDiscount) <= 1) {
+      shortfall.forEach(r => { r.status = 'discount-offset'; });
+      discountResolved = true;
+      const ratios = shortfall.map(r => r.v.amt ? r.i.amt / r.v.amt : 1);
+      const lo = Math.min(...ratios), hi = Math.max(...ratios);
+      const pct = (1 - (lo + hi) / 2) * 100;
+      discountNote =
+        `偵測到 <b>${vP.discounts.length + iP.discounts.length}</b> 筆折讓／無品號扣款，合計 <b>−${money(totalDiscount)}</b> 元，` +
+        `已與下列 <b>${shortfall.length}</b> 個品項的金額差異完全抵銷` +
+        (hi - lo < 0.005 ? `（一致折扣約 <b>${pct.toFixed(1)}%</b>）` : '') +
+        `：${shortfall.map(r => r.partNo || r.name).join('、')}。<br>這些品項的帳其實是<b>對的</b>，不需要處理。`;
+    } else if (totalDiscount > TOL) {
+      discountNote =
+        `偵測到 <b>${vP.discounts.length + iP.discounts.length}</b> 筆折讓／無品號扣款，合計 <b>−${money(totalDiscount)}</b> 元，` +
+        `但無法與金額差異自動抵銷（公司短少合計 <b>${money(shortfallSum)}</b> 元）。請人工確認「折讓／無品號」分頁。`;
+    }
+
+    /* 3. 折讓列本身也列出來（過去完全看不到） */
+    for (const l of vP.discounts) rows.push({
+      key: 'D:V:' + l.row, partNo: l.partNo || '（無品號）', name: l.name,
+      v: { qty: l.qty, amt: l.amt }, i: null, vLines: [l], iLines: [],
+      status: 'discount', gap: -l.amt });
+    for (const l of iP.discounts) rows.push({
+      key: 'D:I:' + l.row, partNo: l.partNo || '（無品號）', name: l.name,
+      v: null, i: { qty: l.qty, amt: l.amt }, vLines: [], iLines: [l],
+      status: 'discount', gap: l.amt });
+
+    /* 4. 品號尾碼提示（3M41035209-11 ↔ 3M41035209） */
+    const vBase = new Map(), iBase = new Map();
+    for (const [k, e] of vMap) if (e.partNo) vBase.set(basePart(normPart(e.partNo)), e.partNo);
+    for (const [k, e] of iMap) if (e.partNo) iBase.set(basePart(normPart(e.partNo)), e.partNo);
+    for (const r of rows) {
+      if (!r.partNo) continue;
+      const b = basePart(normPart(r.partNo));
+      if (b === normPart(r.partNo)) continue;
+      if (r.status === 'vendor-only'   && iBase.has(b)) r.hint = `疑似為公司品號 ${iBase.get(b)} 的加工／修改費`;
+      if (r.status === 'internal-only' && vBase.has(b)) r.hint = `疑似為廠商品號 ${vBase.get(b)} 的加工／修改費`;
+    }
+
+    /* 5. 排序、統計 */
+    const order = { 'amount-diff': 0, 'vendor-only': 1, 'internal-only': 2, discount: 3, 'discount-offset': 4, split: 5, ok: 6 };
+    rows.sort((a, b) => (order[a.status] - order[b.status]) || Math.abs(b.gap) - Math.abs(a.gap));
+    allRows = rows;
 
     const counts = {};
-    for (const r of allRows) counts[r.status] = (counts[r.status] || 0) + 1;
-    document.getElementById('s-diff').textContent          = counts.diff || 0;
-    document.getElementById('s-ambiguous').textContent     = counts.ambiguous || 0;
-    document.getElementById('s-vendor-only').textContent   = counts['vendor-only'] || 0;
-    document.getElementById('s-internal-only').textContent = counts['internal-only'] || 0;
-    document.getElementById('s-ok').textContent            = counts.ok || 0;
+    for (const r of rows) counts[r.status] = (counts[r.status] || 0) + 1;
+    for (const k of ['amount-diff', 'vendor-only', 'internal-only', 'discount', 'split', 'ok'])
+      document.getElementById('s-' + k).textContent = counts[k] || 0;
+
+    /* 6. 總額核對 + 解析防呆 */
+    const gap = iTotal - vTotal;
+    recon = { vTotal, iTotal, gap, vP, iP, counts, discountNote, discountResolved, totalDiscount };
+    document.getElementById('r-vendor').textContent   = money(vTotal);
+    document.getElementById('r-internal').textContent = money(iTotal);
+    const gEl = document.getElementById('r-gap');
+    gEl.textContent = (gap > 0 ? '+' : '') + money(gap);
+    gEl.className = 'recon-num ' + (Math.abs(gap) <= TOL ? 'gap-zero' : 'gap-nonzero');
+
+    const vOnly = sum(rows.filter(r => r.status === 'vendor-only').map(r => r.v.amt));
+    const iOnly = sum(rows.filter(r => r.status === 'internal-only').map(r => r.i.amt));
+    const unexplained = sum(rows.filter(r => r.status === 'amount-diff').map(r => r.gap));
+    const parts = [];
+    if (iOnly) parts.push(`公司多出的品項 <b>+${money(iOnly)}</b>`);
+    if (vOnly) parts.push(`廠商多出的品項 <b>−${money(vOnly)}</b>`);
+    if (Math.abs(unexplained) > TOL) parts.push(`尚未解釋的金額差 <b>${unexplained > 0 ? '+' : ''}${money(unexplained)}</b>`);
+    document.getElementById('r-note').innerHTML = Math.abs(gap) <= TOL
+      ? '✅ 兩張表總額完全相同。'
+      : `差額組成：${parts.join('　+　')}　=　<b>${gap > 0 ? '+' : ''}${money(gap)}</b>`;
+
+    renderParseBanner(vP, iP, vTotal, iTotal);
+    document.getElementById('discount-banner').innerHTML = discountNote
+      ? `<div class="banner ${discountResolved ? 'banner-info' : 'banner-warn'}">${discountResolved ? '💡' : '⚠️'} ${discountNote}</div>` : '';
 
     document.getElementById('result-area').style.display = '';
     document.getElementById('btn-export').disabled = false;
-    if (counts.diff > 0) setFilter('diff', document.getElementById('fb-diff'));
-    else setFilter('all', document.getElementById('fb-all'));
+    setFilter('todo');
 
-  } catch(err) {
-    alert('讀取失敗，請確認格式正確。\n' + err.message);
+  } catch (err) {
+    alert('讀取失敗，請確認格式正確。\n\n' + err.message);
+    console.error(err);
   }
   btn.disabled = false; btn.textContent = '開始比對';
 }
 
-function fmtPrices(prices, cls) {
-  if (!prices || prices.length === 0) return '<span class="price-na">—</span>';
-  return prices.map(p => `<span class="${cls}">${p.toLocaleString('zh-TW')}</span>`).join('<br>');
+/* ── 解析防呆：跟檔案自己的「合計」對一次，不一致就大聲說 ── */
+function renderParseBanner(vP, iP, vTotal, iTotal) {
+  const msgs = [];
+  const check = (p, total, label) => {
+    if (p.declaredTotal === null) return;
+    if (Math.abs(p.declaredTotal - total) > 1)
+      msgs.push(`${label}解析出的金額 <b>${money(total)}</b> 與表上「合計 ${money(p.declaredTotal)}」不符，可能有資料列沒被讀到。`);
+  };
+  check(vP, vTotal, '廠商對帳單');
+  check(iP, iTotal, '公司收料單');
+  const info = `已讀取　廠商：工作表「${vP.sheetName}」標題列第 ${vP.headerRow} 列、${vP.items.length + vP.discounts.length} 筆　｜　`
+             + `公司：工作表「${iP.sheetName}」標題列第 ${iP.headerRow} 列、${iP.items.length + iP.discounts.length} 筆`;
+  document.getElementById('parse-banner').innerHTML = msgs.length
+    ? `<div class="banner banner-error">🚨 <b>解析可能不完整</b><br>${msgs.join('<br>')}<br><span style="opacity:.75">${info}</span></div>`
+    : `<div class="banner banner-info" style="background:#f0faf4;color:#1a7040;border-color:#cfeeda">✅ 解析與表上合計相符。<span style="opacity:.75">${info}</span></div>`;
 }
 
+/* ── 表格渲染 ── */
+const TAGS = {
+  'amount-diff':     '⚠ 金額不符',
+  'vendor-only':     '廠商有',
+  'internal-only':   '公司有',
+  'discount':        '折讓',
+  'discount-offset': '折讓抵銷',
+  'split':           '記帳不同',
+  'ok':              '✓ 一致',
+};
+const TODO = ['amount-diff', 'vendor-only', 'internal-only'];
+const esc = s => String(s == null ? '' : s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+
 function renderTable(filter) {
-  const filtered = filter === 'all' ? allRows : allRows.filter(r => r.status === filter);
-  document.getElementById('no-data').style.display = filtered.length === 0 ? '' : 'none';
+  const list = filter === 'all'  ? allRows
+             : filter === 'todo' ? allRows.filter(r => TODO.includes(r.status))
+             : allRows.filter(r => r.status === filter);
+  document.getElementById('no-data').style.display = list.length === 0 ? '' : 'none';
 
-  const tagMap = {
-    diff:            '<span class="tag tag-diff">⚠ 不符</span>',
-    ambiguous:       '<span class="tag tag-ambiguous">? 廠商不一致</span>',
-    'vendor-only':   '<span class="tag tag-vendor-only">廠商有</span>',
-    'internal-only': '<span class="tag tag-internal-only">公司有</span>',
-    ok:              '<span class="tag tag-ok">✓ 一致</span>',
-  };
+  document.getElementById('tbody').innerHTML = list.map((r, idx) => {
+    const i = allRows.indexOf(r);
+    const vq = r.v ? r.v.qty : null, iq = r.i ? r.i.qty : null;
+    const va = r.v ? r.v.amt : null, ia = r.i ? r.i.amt : null;
+    // 單邊才有的金額用該邊的強調色，不再用看不見的淺灰
+    const vCls = r.v ? (r.status === 'amount-diff' ? 'd-strong' : r.status === 'vendor-only'   ? 'v-strong' : '') : 'muted';
+    const iCls = r.i ? (r.status === 'amount-diff' ? 'd-strong' : r.status === 'internal-only' ? 'i-strong' : '') : 'muted';
+    const gapCell = Math.abs(r.gap) > TOL
+      ? `<span class="${r.status === 'vendor-only' ? 'v-strong' : r.status === 'internal-only' ? 'i-strong' : 'd-strong'}">${r.gap > 0 ? '+' : ''}${money(r.gap)}</span>`
+      : '<span class="muted">—</span>';
 
-  document.getElementById('tbody').innerHTML = filtered.map(r => {
-    let diffCell = '—';
-    if (r.status === 'diff' && r.vPrices.length === 1 && r.iPrices.length >= 1) {
-      const diff = r.iPrices[0] - r.vPrices[0];
-      diffCell = `<span class="diff-amt">${diff > 0 ? '+' : ''}${diff.toLocaleString('zh-TW')}</span>`;
-    }
-    const vCls = r.status === 'diff' ? 'price-diff' : r.status === 'ok' ? 'price-ok' : 'price-na';
-    const iCls = r.status === 'diff' ? 'price-diff' : r.status === 'ok' ? 'price-ok' : 'price-na';
-    return `<tr>
-      <td>${tagMap[r.status]}</td>
-      <td style="font-family:monospace;font-size:0.78rem">${r.partNo}</td>
-      <td>${r.name}</td>
-      <td style="text-align:right" class="price-multi">${fmtPrices(r.vPrices, vCls)}</td>
-      <td style="text-align:right" class="price-multi">${fmtPrices(r.iPrices, iCls)}</td>
-      <td style="text-align:right">${diffCell}</td>
-    </tr>`;
+    return `<tr class="main" onclick="toggle(${i})">
+      <td><span class="caret" id="c-${i}">▸</span><span class="tag tag-${r.status}">${TAGS[r.status]}</span></td>
+      <td style="font-family:monospace;font-size:0.76rem">${esc(r.partNo)}</td>
+      <td class="pname">${esc(r.name)}${r.hint ? `<span class="hint">↳ ${esc(r.hint)}</span>` : ''}</td>
+      <td class="num qty">${vq === null ? '—' : money(vq)}</td>
+      <td class="num"><span class="${vCls}">${va === null ? '—' : money(va)}</span></td>
+      <td class="num qty">${iq === null ? '—' : money(iq)}</td>
+      <td class="num"><span class="${iCls}">${ia === null ? '—' : money(ia)}</span></td>
+      <td class="num">${gapCell}</td>
+    </tr>
+    <tr class="detail" id="d-${i}" style="display:none"><td colspan="8">${detailHtml(r)}</td></tr>`;
   }).join('');
 }
 
-function setFilter(filter, btn) {
+function detailHtml(r) {
+  const rowsOf = (lines, side) => lines.map(l => `<tr>
+      <td class="side-${side}">${side === 'v' ? '廠商' : '公司'}</td>
+      <td>第 ${l.row} 列</td>
+      <td>${esc(l.doc)}</td>
+      <td>${esc(l.date)}</td>
+      <td class="num">${money(l.qty)}</td>
+      <td class="num">${money(l.price)}</td>
+      <td class="num">${money(l.amt)}</td>
+      <td>${esc(l.name)}</td>
+    </tr>`).join('');
+  return `<table class="dtl">
+    <thead><tr><th>來源</th><th>Excel 位置</th><th>單號</th><th>日期</th><th class="num">數量</th><th class="num">單價</th><th class="num">金額</th><th>品名</th></tr></thead>
+    <tbody>${rowsOf(r.vLines, 'v')}${rowsOf(r.iLines, 'i')}</tbody></table>`;
+}
+
+function toggle(i) {
+  const d = document.getElementById('d-' + i), c = document.getElementById('c-' + i);
+  if (!d) return;
+  const open = d.style.display === '';
+  d.style.display = open ? 'none' : '';
+  if (c) c.textContent = open ? '▸' : '▾';
+}
+
+function setFilter(filter) {
+  curFilter = filter;
   document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-  btn.classList.add('active');
+  const btn = document.getElementById('fb-' + filter);
+  if (btn) btn.classList.add('active');
   renderTable(filter);
 }
 
+/* ── 匯出 Excel：總表 + 明細 ── */
 function exportExcel() {
-  const statusLabel = { diff: '單價不符', ambiguous: '廠商價格不一致', 'vendor-only': '廠商有、公司無', 'internal-only': '公司有、廠商無', ok: '金額一致' };
-  const data = [['狀態', '品號', '品名', '廠商單價', '公司單價', '差額']];
+  const L = { 'amount-diff': '金額不符', 'vendor-only': '廠商有、公司無', 'internal-only': '公司有、廠商無',
+              discount: '折讓／無品號', 'discount-offset': '折讓已抵銷', split: '記帳方式不同', ok: '完全一致' };
+
+  const s1 = [
+    ['對帳比對結果'], [],
+    ['廠商對帳單合計', recon.vTotal], ['公司收料單合計', recon.iTotal], ['差額（公司 − 廠商）', recon.gap], [],
+    ['狀態', '品號', '品名', '廠商數量', '廠商金額', '公司數量', '公司金額', '差額', '備註'],
+  ];
+  for (const r of allRows) s1.push([
+    L[r.status], r.partNo, r.name,
+    r.v ? r.v.qty : '', r.v ? r.v.amt : '',
+    r.i ? r.i.qty : '', r.i ? r.i.amt : '',
+    Math.abs(r.gap) > TOL ? r.gap : '', r.hint || '',
+  ]);
+
+  const s2 = [['狀態', '品號', '品名', '來源', 'Excel 列', '單號', '日期', '數量', '單價', '金額']];
   for (const r of allRows) {
-    const vP = r.vPrices.length ? r.vPrices.join(' / ') : '—';
-    const iP = r.iPrices.length ? r.iPrices.join(' / ') : '—';
-    let diff = '—';
-    if (r.status === 'diff' && r.vPrices.length === 1 && r.iPrices.length >= 1) {
-      diff = r.iPrices[0] - r.vPrices[0];
-    }
-    data.push([statusLabel[r.status], r.partNo, r.name, vP, iP, diff]);
+    for (const l of r.vLines) s2.push([L[r.status], r.partNo, r.name, '廠商', l.row, l.doc, l.date, l.qty, l.price, l.amt]);
+    for (const l of r.iLines) s2.push([L[r.status], r.partNo, r.name, '公司', l.row, l.doc, l.date, l.qty, l.price, l.amt]);
   }
-  const ws = XLSX.utils.aoa_to_sheet(data);
-  ws['!cols'] = [{ wch: 14 }, { wch: 16 }, { wch: 22 }, { wch: 12 }, { wch: 12 }, { wch: 8 }];
+
   const wb = XLSX.utils.book_new();
-  XLSX.utils.book_append_sheet(wb, ws, '比對結果');
-  const now = new Date();
-  const dateStr = `${now.getFullYear()}${String(now.getMonth()+1).padStart(2,'0')}${String(now.getDate()).padStart(2,'0')}`;
-  XLSX.writeFile(wb, `對帳比對結果_${dateStr}.xlsx`);
+  const ws1 = XLSX.utils.aoa_to_sheet(s1);
+  ws1['!cols'] = [{ wch: 15 }, { wch: 17 }, { wch: 30 }, { wch: 9 }, { wch: 11 }, { wch: 9 }, { wch: 11 }, { wch: 10 }, { wch: 34 }];
+  const ws2 = XLSX.utils.aoa_to_sheet(s2);
+  ws2['!cols'] = [{ wch: 15 }, { wch: 17 }, { wch: 30 }, { wch: 6 }, { wch: 9 }, { wch: 16 }, { wch: 11 }, { wch: 8 }, { wch: 10 }, { wch: 11 }];
+  XLSX.utils.book_append_sheet(wb, ws1, '比對結果');
+  XLSX.utils.book_append_sheet(wb, ws2, '原始明細');
+
+  const n = new Date();
+  const d = `${n.getFullYear()}${String(n.getMonth() + 1).padStart(2, '0')}${String(n.getDate()).padStart(2, '0')}`;
+  XLSX.writeFile(wb, `對帳比對結果_${d}.xlsx`);
 }
 </script>
 </body>
